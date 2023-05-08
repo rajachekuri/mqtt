@@ -1,0 +1,29 @@
+'''on_connect method for subscribing topic cycles
+   on_message method for handling receiving message
+   loop_forever function is used to start client loop which listens for
+ incoming messages and calls the on_message function to haldle them'''
+
+# here expecting json messages in on_message function need to change acoordingly.
+
+import paho.mqtt.client as mqtt
+import json
+import constants
+
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code " + str(rc))
+    client.subscribe("cycles")
+
+def on_message(client, userdata, msg):
+    try:
+        payload = json.loads(msg.payload)
+        # Process the payload data here
+        print(payload)
+    except Exception as e:
+        print("Error processing message: {}".format(str(e)))
+
+if __name__ == '__main__':
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect("127.0.0.1", 1883, 60)
+    client.loop_forever()
