@@ -1,0 +1,25 @@
+MQTT (Message Queuing Telemetry Transport) is a lightweight messaging protocol designed for efficient communication between devices in constrained environments, 
+such as those with limited bandwidth, high latency, or low processing power. It follows a publish-subscribe model, where devices can publish messages to topics 
+or subscribe to specific topics to receive messages.
+
+Here are some key features of MQTT:
+
+    Lightweight: MQTT is designed to be simple and lightweight, making it suitable for resource-constrained devices like sensors and IoT (Internet of Things) devices.
+    It uses a binary message format, which minimizes the data size and reduces bandwidth usage.
+
+    Publish-Subscribe Model: In MQTT, there are two roles: publishers and subscribers. Publishers send messages to a specific topic, and subscribers receive messages 
+    by subscribing to topics of interest. This model enables decoupling of devices, allowing flexible and scalable communication patterns.
+
+    Quality of Service (QoS): MQTT supports different levels of QoS to ensure message delivery reliability. It offers three levels:
+        QoS 0 (At most once): The message is delivered once but may be lost or duplicated.
+        QoS 1 (At least once): The message is guaranteed to be delivered at least once, but duplicates may occur.
+        QoS 2 (Exactly once): The message is assured to be delivered exactly once, with no duplicates.
+
+    Asynchronous Communication: MQTT operates asynchronously, meaning devices can send and receive messages without waiting for a response. This asynchronous 
+    nature allows for efficient communication and minimizes delays.
+
+    Broker-based Architecture: MQTT uses a broker as an intermediary between publishers and subscribers. The broker receives messages published by publishers 
+    and forwards them to the relevant subscribers based on topic subscriptions.
+
+    Scalability and Flexibility: MQTT supports a hierarchical topic structure, where topics can have multiple levels separated by slashes 
+    (e.g., "sensors/temperature/living-room"). This enables efficient filtering and routing of messages based on topics.
